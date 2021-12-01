@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./templates/header')%>
+</head>
+
+<body class="m-2 row justify-content-center">
+    <div class="container m-2 row justify-content-center">
+
+        <div class="card-header">
+            <%- include('./templates/navbar')%>
+        </div>
+        <br>
+        <form method="post">
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <div class="card mb-3 col" style="border-left: 100px; border-right: 100px;">
+                        <div class="row">
+                            <div class="col-2" style="background-color: rgb(243, 232, 146);">
+                                <img src="/images/cita1.png" class="img-fluid rounded-start" alt="Perfil de cita" style="width: 120px; border-radius:30px;
+                               margin-left: auto; margin-right: auto; display: block; margin-top: 100px;">
+                            </div>
+                            <div class="col-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"
+                                        style="color: rgb(255, 154, 2); font-size: 36px; text-align: center;">Solicitar
+                                        cita</h5>
+                                    <div class="container-sm">
+                                        <label for="idCustomer"> <b style="color: rgb(0, 0, 0);">Número
+                                                identificación</b></label>
+                                        <input type="text" class="form-control" placeholder="100441563" id="idCustomer" name="idCustomer"
+                                            pattern="[0-9]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="namePet"> <b style="color: rgb(0, 0, 0);">Nombre mascota</b></label>
+                                        <input type="text" class="form-control" placeholder="Max" id="namePet" name="namePet"
+                                            pattern="[a-zA-z\s]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="dateR"> <b style="color: rgb(0, 0, 0);">Eliga la fecha de la consulta</b></label>
+                                        <div class="input-group date" id="date" data-date-format="dd-mm-yyyy">
+                                            <input class="form-control" size="16" type="date" id="dateR" name="dateR" min="date()" required>
+                                            <span class="add-on"><i class="icon-th"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="time"> <b style="color: rgbrgb(0, 0, 0);">Seleccione la
+                                                hora</b></label>
+                                        <input type="time" class="form-control" id="time" name="time" min="12:00" max="20:30" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="serviceP"> <b style="color: rgb(0, 0, 0);">Motivo de cita</b></label>
+                                        <select id="serviceP" class="form-select" name="serviceP" required>
+                                            <option value="">Seleccione el servicio</option>
+                                            <%services.forEach(service=> { %>
+                                                <option value="<%= service.id%>">
+                                                    <%= service.name%>
+                                                </option>
+                                                <%})%>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="d-grid gap">
+                                            <button type="submit" class="btn btn-outline-dark" id="create">Confirmar cita</button>     
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3" style="background-color: rgb(255, 255, 255);">
+                                <img src="/images/pets1.jpg" class="img-fluid rounded-start" alt="Imagen mascotas">
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+    </div>
+   
+    </form>
+    <br>
+    <%- include('./templates/footer')%>
+</body>
+
+</html>

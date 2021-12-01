@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./templates/header')%>
+</head>
+
+<body class="m-2 row justify-content-center">
+    <div class="container m-2 row justify-content-center">
+
+        <div class="card-header">
+            <%- include('./templates/navbar')%>
+        </div>
+        <br>
+        <form method="post">
+            <div class="row">
+                <div class="col-8">
+                    <br>
+                    <div class="card mb-3 col" style="border-left: 100px; border-right: 100px;">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"
+                                        style="color: rgb(189, 0, 0); font-size: 36px; text-align: center;">Ingresa tus credenciales</h5>
+                                    <div class="container-sm">
+                                        <label for="user"> <b style="color: rgb(0, 0, 0);">Usuario</b></label>
+                                        <input type="text" class="form-control" placeholder="usuario" id="user" name="user"
+                                        pattern="[a-zA-z\s]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="password"> <b style="color: rgb(0, 0, 0);">Contraseña</b></label>
+                                        <input type="password" class="form-control" placeholder="*********" id="password" name="password"
+                                            pattern="[a-zA-z\s]+" required>
+                                    </div>                              
+                                    <br>
+                                    <div class="row">
+                                        <div class="d-grid gap">
+                                            <button type="submit" class="btn btn-outline-dark" id="create">Iniciar sesión</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+    </div>
+   
+    </form>
+    <br>
+    <%- include('./templates/footer')%>
+</body>
+
+</html>

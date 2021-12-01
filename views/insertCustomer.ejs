@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./templates/header')%>
+</head>
+
+<body class="m-2 row justify-content-right ">
+    <div class="container m-2 row justify-content-rigth">
+        <div class="card-header">
+            <%- include('./templates/navbar')%>
+        </div>
+
+        <br>
+        <form method="post">
+            <br>
+            <div class="row">
+                <div class="col-5">
+                    <div class="card mb-3 col" style="border-left: 100px;">
+                        <div class="row">
+                            <div class="col-3" style="background-color: rgb(175, 187, 11);">
+                                <img src="/images/user.png" class="img-fluid rounded-start" alt="Perfil de usuario"
+                                    style="width: 120px; border-radius:40px;
+                    margin-left: auto; margin-right: auto; display: block; margin-top: 100px;">
+                            </div>
+                            <div class="col-md">
+                                <div class="card-body">
+                                    <h5 class="card-title"
+                                        style="color: rgb(11, 126, 1); font-size: 36px; text-align: center;">Crear
+                                        cliente</h5>
+                                    <div class="container-sm">
+                                        <label for="id"> <b style="color: rgb(0, 0, 0);">Número
+                                                identificación</b></label>
+                                        <input type="text" class="form-control" placeholder="100441563" name="id"
+                                            id="id" pattern="[0-9]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="name"> <b style="color: rgb(0, 0, 0);">Nombre</b></label>
+                                        <input type="text" class="form-control" placeholder="Paula" id="name"
+                                            name="name" pattern="[a-zA-z\s]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="lastname"> <b style="color: rgb(0, 0, 0);">Apellido</b></label>
+                                        <input type="text" class="form-control" placeholder="Cardozo" id="lastname"
+                                            name="lastname" pattern="[a-zA-z\s]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="phone"> <b style="color: rgbrgb(0, 0, 0);">Número de
+                                                teléfono</b></label>
+                                        <input type="tel" class="form-control" placeholder="3217489234" id="phone"
+                                            name="phone" pattern="[0-9]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="address"> <b style="color: rgbrgb(0, 0, 0);">Dirección de
+                                                residencia</b></label>
+                                        <input type="text" class="form-control" placeholder="Cra 23 #12-2" id="address"
+                                            name="address" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="card mb-3 col">
+                        <div class="row ">
+                            <div class="col-3" style="background-color: rgb(252, 200, 158);">
+                                <img src="/images/pet1.png" class="img-fluid rounded-start" alt="Perfil de mascota"
+                                    style="width: 120px; border-radius:40px;
+                    margin-left: auto; margin-right: auto; display: block; margin-top: 100px;">
+                            </div>
+                            <div class="col-md">
+                                <div class="card-body">
+                                    <h5 class="card-title"
+                                        style="color: rgb(160, 9, 9); font-size: 36px; text-align: center;">Crear
+                                        mascota</h5>
+                                    <div class="container-sm">
+                                        <label for="species"> <b style="color: rgb(0, 0, 0);">Especie</b></label>
+                                        <select id="species" class="form-select" name="species" required>
+                                            <option value="">Seleccione la especie</option>
+                                            <%pets.forEach(pet=> { %>
+                                                <option value="<%= pet.id%>">
+                                                    <%= pet.species%>
+                                                </option>
+                                                <%})%>
+                                        </select>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="breed"> <b style="color: rgb(0, 0, 0);">Raza</b></label>
+                                        <input type="text" class="form-control" placeholder="Golden" id="breed"
+                                            name="breed" pattern="[a-zA-z\s]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="namePet"> <b style="color: rgb(0, 0, 0);">Nombre</b></label>
+                                        <input type="text" class="form-control" placeholder="Max" id="namePet"
+                                            name="namePet" pattern="[a-zA-z\s]+" required>
+                                    </div>
+                                    <div class="container-sm">
+                                        <label for="agePet"> <b style="color: rgb(0, 0, 0);">Edad</b></label>
+                                        <select id="agePet" class="form-select" name="agePet" required>
+                                            <option value="">Seleccione la edad de su mascota</option>
+                                            <%for(i=0; i<=30; i++) { %>
+                                                <option value="<%= i%>">
+                                                    <%= i%>
+                                                </option>
+                                                <%}%>
+                                        </select>
+                                    </div>
+                                    <fieldset class="row mb-3">
+                                        <div class="container-sm">
+                                            <legend class="col-form-label col-sm pt-0"><b>Género</b></legend>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="gender"
+                                                            value="F" checked>
+                                                        <label class="form-check-label" for="gender">
+                                                            Femenino
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="gender"
+                                                            value="M">
+                                                        <label class="form-check-label" for="gender">
+                                                            Masculino
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="d-grid gap col-10">
+            <button type="submit" class="btn btn-danger" id="create">Crear usuario</button>
+        </div>
+    </div>
+    </form>
+
+    <%- include('./templates/footer')%>
+</body>
+
+</html>
